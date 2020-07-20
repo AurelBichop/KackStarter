@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Liste des projets au nombre de : {{ projects|length }}</h1>
+
+        {% for project in projects %}
+            <article>
+                <header>
+                    <h2>{{ project.name }}</h2>
+                </header>
+                <p>
+                <ul>
+                    <li><strong>Montant visé : </strong>{{ project.targetAmount | localizedcurrency('USD') }}</li>
+                    <li><strong>Website : </strong>{{ project.website }}</li>
+                    <li><strong>Expire le : </strong>{{ project.expiredOn | date('d-m-Y') }}</li>
+                </ul>
+            </article>
+
+        {% endfor %}
+
+</div>
+{% endblock %}
