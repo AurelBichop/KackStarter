@@ -15,6 +15,7 @@
                 <ul>
                     <li><strong>Montant visé : </strong>{{ project.targetAmount | localizedcurrency('USD') }}</li>
                     <li><strong>Website : </strong>{{ project.website }}</li>
+                    <li><strong>Description : </strong><p>{{ project.description|truncate(20) }}</p></li>
                     <li><strong>Expire le : </strong>{{ project.expiredOn | date('d-m-Y') }}</li>
                 </ul>
             </article>
