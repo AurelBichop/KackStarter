@@ -4,7 +4,7 @@
 
 {% block body %}
 <div>
-    <h1>Liste des projets au nombre de : {{ projects|length }}</h1>
+    <h1>Liste des projets au nombre de : {{ pluralize(projects|length,'projet') }}</h1>
 
         {% for project in projects %}
             <article>
@@ -16,7 +16,7 @@
                     <li><strong>Montant visé : </strong>{{ project.targetAmount | localizedcurrency('USD') }}</li>
                     <li><strong>Website : </strong>{{ project.website }}</li>
                     <li><strong>Description : </strong><p>{{ project.description|truncate(20) }}</p></li>
-                    <li><strong>Expire le : </strong>{{ project.expiredOn | date('d-m-Y') }}</li>
+                    <li><strong>Expire le : </strong>{{ project.expiredOn | date('d-m-Y') }} ({{ format_date(project.expiredOn) }})</li>
                 </ul>
             </article>
 
